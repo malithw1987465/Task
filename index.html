@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task One</title>
-    <link rel="stylesheet" href="../../asets/css/bootstrap.css">
+    <title>Tasks</title>
+    <link rel="icon" href="assets/img/logo/checklist.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 </head>
 <body>
 <section class="container mt-3">
     <section class="row">
         <!--Case One-->
         <div class="col">
-            <h1>Hello There How are you.?</h1>
+            <h1 id="header">Hello There How are you.?</h1>
             <input id="txt" class="form-control" type="text" placeholder="Input Something">
             <button id="btn1" class="mt-2 btn btn-danger">Change Text</button>
         </div>
@@ -26,23 +27,11 @@
 </section>
 
 <script>
-    //Case One
-    //Bind an event for Change Text Btn
-    //Get Input Text Value
-    //Assign it to H1 text
-    //Change the color of h1 to red
-    //Change font size t0 4em
-
-
-    //Case Two
-    //Bind an event for Change Image Btn
-    //Get Input URL Value
-    //Assign it to the Image src
     document.querySelector("#txt").addEventListener("keyup",function(){
-        document.querySelector("#head").innerText=document.querySelector("#txt").value;
+        document.querySelector("#header").innerText=document.querySelector("#txt").value;
     });
     document.querySelector("#btn1").addEventListener("click",function(){
-        document.querySelector("#head").style.color='red';
+        document.querySelector("#header").style.color='red';
     });
 
 </script>
