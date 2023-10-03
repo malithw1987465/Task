@@ -1,50 +1,61 @@
-</html>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Task Two</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
 </head>
-
 <body>
 
-    <section class="container">
-        <h1>Task Generator.!</h1>
-        <div class="row">
-            <div class="col-4">
-                <input id="txt" class="form-control" type="text" placeholder="Input a Task">
-                <button id="btn" class="btn btn-danger mt-2">Add Task</button>
-            </div>
-            <div class="offset-1 col-3 shadow overflow-x-hidden" style="height: 70vh">
-                <ol id="list" class="list-group p-2">
-                    <li class="list-group-item">Task One</li>
-                </ol>
-            </div>
+<section class="container">
+    <h1>Counter.!</h1>
+    <div class="row">
+        <div class="col-4">
+            <input id="txt" class="form-control" type="number" placeholder="Input a Number" value="0">
+            <button id="btnStart" class="btn btn-warning mt-2">Start</button>
+            <button id="btnStop" class="btn btn-danger mt-2">Stop</button>
+            <button id="btnMinus" class="btn btn-warning mt-2">-</button>
+            <button id="btnIncrement" class="btn btn-success mt-2">+</button>
         </div>
-    </section>
+        <div class="offset-1 col-3 shadow overflow-x-hidden d-flex justify-content-center align-items-center"
+             style="height: 50vh">
+            <h1 id="display" class="text-danger" style="font-size: 8em">0</h1>
+        </div>
+    </div>
+</section>
 
+<script>
+    let startBtn=document.querySelector("#btnStart");
+    let display=document.querySelector("#display");
+    let stopBtn=document.querySelector("#btnStop");
 
+    let minus= document.querySelector("#btnMinus");
+    let increment= document.querySelector("#btnIncrement");
 
-    <script>
-        document.querySelector("#btn").addEventListener("click", function () {
-            var value = document.querySelector("#txt").value;
-
-            const listItem = document.createElement("lis");
-            listItem.className = "list-group-item";
-            listItem.textContent = value;
-            document.querySelector("#list").appendChild(listItem);
-            document.querySelector("#txt").value = "";
-
-        
-         });
-        //Bind an event for Change Text Btn
-        //Get Input Text Value
-        //Create a list element
-        //Add it to the Ordered List
-    </script>
+    let text = document.querySelector("#txt");
+    let interval;
+    startBtn.addEventListener("click",function (){
+        if(text.value === ""){
+            interval = setInterval(function () {
+                display.innerText=parseInt(display.innerText)+1;
+            },1000);
+        }else {
+            display.innerText=text.value;
+            interval = setInterval(function () {
+                display.innerText=parseInt(display.innerText)+1;
+                text.value="";
+            },1000);
+        }
+    });
+    stopBtn.addEventListener("click",function (){
+       clearInterval(interval);
+    });
+    increment.addEventListener("click",function (){
+        display.innerText=parseInt(display.innerText)+1;
+    });
+    minus.addEventListener("click",function (){
+        display.innerText=parseInt(display.innerText)-1;
+    });
+</script>
 </body>
-
 </html>
